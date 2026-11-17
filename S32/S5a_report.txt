@@ -1,0 +1,10 @@
+
+  32/3235 frames (2 s)
+  672/3235 frames (30 s)
+  1312/3235 frames (68 s)
+  1952/3235 frames (103 s)
+  2592/3235 frames (146 s)
+  3232/3235 frames (179 s)
+
+vehicles per frame: none 0.0 % | one 0.7 % | two or more 99.3 % | mean 4.8 | max 8 (frames at the 8-box limit: 8.3 %)
+saved S32/S5_yolo.npy (3235, 8, 6) | 3.0 min

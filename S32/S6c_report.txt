@@ -1,0 +1,46 @@
+[1] samples train 1849 | val 516 | test 635 | test frames with a beam jump >= 3: 14.2 %
+
+  seed 0: finder picks the GPS-labelled car in 72.4 % of test frames
+    box MLP     best epoch 122 | one look top-1 27.6 DBA 65.9 | served power K1 90.0 (c=1) K2 97.4 (c=1) K3 98.5 (c=1) K4 99.1 (c=1) K5 99.6 (c=0)
+    box CNN     best epoch  43 | one look top-1 26.5 DBA 64.8 | served power K1 89.3 (c=1) K2 96.7 (c=1) K3 98.3 (c=1) K4 98.8 (c=1) K5 99.6 (c=0)
+    box BiLSTM  best epoch  76 | one look top-1 28.3 DBA 66.6 | served power K1 89.3 (c=1) K2 96.3 (c=1) K3 98.3 (c=1) K4 99.2 (c=1) K5 99.6 (c=0)
+    box GRU     best epoch 113 | one look top-1 26.5 DBA 65.1 | served power K1 89.6 (c=1) K2 96.2 (c=1) K3 98.4 (c=1) K4 99.1 (c=1) K5 99.6 (c=0)
+
+  seed 1: finder picks the GPS-labelled car in 62.7 % of test frames
+    box MLP     best epoch  61 | one look top-1 23.8 DBA 57.8 | served power K1 84.8 (c=1) K2 91.5 (c=1) K3 94.7 (c=1) K4 95.7 (c=1) K5 95.9 (c=2)
+    box CNN     best epoch  47 | one look top-1 26.1 DBA 59.0 | served power K1 85.8 (c=1) K2 91.2 (c=1) K3 94.7 (c=1) K4 95.5 (c=1) K5 95.8 (c=2)
+    box BiLSTM  best epoch  50 | one look top-1 23.0 DBA 59.0 | served power K1 85.6 (c=1) K2 91.9 (c=1) K3 94.8 (c=1) K4 95.6 (c=1) K5 95.8 (c=2)
+    box GRU     best epoch  78 | one look top-1 23.8 DBA 58.8 | served power K1 85.5 (c=1) K2 91.3 (c=1) K3 94.7 (c=1) K4 95.5 (c=1) K5 95.7 (c=2)
+
+  seed 2: finder picks the GPS-labelled car in 65.3 % of test frames
+    box MLP     best epoch  83 | one look top-1 24.6 DBA 60.5 | served power K1 84.9 (c=1) K2 91.8 (c=1) K3 94.9 (c=1) K4 99.1 (c=0) K5 99.6 (c=0)
+    box CNN     best epoch  82 | one look top-1 25.0 DBA 62.2 | served power K1 86.2 (c=1) K2 91.4 (c=1) K3 95.0 (c=1) K4 99.1 (c=0) K5 99.6 (c=0)
+    box BiLSTM  best epoch  92 | one look top-1 24.1 DBA 63.0 | served power K1 86.5 (c=1) K2 92.0 (c=1) K3 94.4 (c=1) K4 99.1 (c=0) K5 99.6 (c=0)
+    box GRU     best epoch  72 | one look top-1 26.3 DBA 62.6 | served power K1 86.8 (c=1) K2 92.1 (c=1) K3 94.9 (c=1) K4 99.1 (c=0) K5 99.6 (c=0)
+
+[1] ONE LOOK (no measuring), test samples, mean +- std over 3 seeds
+model                top-1 %       top-3 %       power %         DBA %
+box MLP           25.3 +-1.6    52.3 +-2.4    86.6 +-2.4    61.4 +-3.4
+box CNN           25.9 +-0.6    52.0 +-0.8    87.1 +-1.6    62.0 +-2.4
+box BiLSTM        25.1 +-2.3    53.6 +-4.1    87.1 +-1.6    62.8 +-3.1
+box GRU           25.5 +-1.2    51.9 +-1.7    87.3 +-1.7    62.2 +-2.6
+
+[2] CLOSED LOOP, CAMERA ONLY: served power % of the best beam (mean +- std over seeds)
+model                                K=1           K=2           K=3           K=4           K=5    jumps, K=3
+local search (no camera)            67.6          89.9          91.8          99.1          99.6          91.5
+box MLP                       86.6 +-2.4    88.9 +-2.2    90.1 +-2.0    91.2 +-1.8    91.9 +-1.7          91.3
+box CNN                       87.1 +-1.6    89.2 +-1.8    90.6 +-1.7    91.4 +-1.9    92.4 +-1.7          92.1
+box BiLSTM                    87.1 +-1.6    89.4 +-1.8    90.7 +-1.8    91.9 +-2.0    93.1 +-1.7          92.3
+box GRU                       87.3 +-1.7    89.3 +-1.7    90.5 +-1.8    91.2 +-1.9    92.5 +-1.8          92.5
+
+[3] CLOSED LOOP, HYBRID: served power % of the best beam (mean +- std over seeds)
+model                                K=1           K=2           K=3           K=4           K=5    jumps, K=3
+local search (no camera)            67.6          89.9          91.8          99.1          99.6          91.5
+box MLP                       86.6 +-2.4    93.6 +-2.7    96.1 +-1.8    98.0 +-1.6    98.4 +-1.7          95.1
+box CNN                       87.1 +-1.6    93.1 +-2.5    96.0 +-1.6    97.8 +-1.6    98.3 +-1.8          95.4
+box BiLSTM                    87.1 +-1.6    93.4 +-2.1    95.9 +-1.8    98.0 +-1.7    98.3 +-1.8          95.0
+box GRU                       87.3 +-1.7    93.2 +-2.2    96.0 +-1.7    97.9 +-1.7    98.3 +-1.9          95.3
+
+K = beams measured per frame after one full sweep at the start of each drive. Hybrid: c of the K beams come from the model.
+
+saved in S32/: S6c_report.txt, S6c_results.csv, S6c_budget.png

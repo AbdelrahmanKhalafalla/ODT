@@ -1,0 +1,19 @@
+[1] samples train 1849 | val 516 | test 635 | feature versions 3 (1 original + 2 augmented) | per frame (512, 12)
+validation drives, kNN train -> val                    top-1   top-3   power     DBA
+floor: always the most common beam                      18.6    20.9    81.8    43.8
+1 raw features, frame t (what S4b used)                  3.5     9.7    70.2    14.7
+2 motion: frame t - frame t-4 (causal)                   7.9    28.7    79.2    41.8
+3 per-drive background removed (diagnostic)             11.0    26.0    78.5    35.2
+2b motion, column activity only (12 numbers)             3.7    14.7    74.3    30.5
+3b background removed, column activity only              6.2    18.4    74.9    33.1
+corr(most active column, beam) on validation, motion: +0.272
+corr(most active column, beam) on validation, background removed: +0.324
+validation drives, kNN train -> val                    top-1   top-3   power     DBA
+floor: always the most common beam                      18.6    20.9    81.8    43.8
+1 raw features, frame t (what S4b used)                  3.5     9.7    70.2    14.7
+2 motion: frame t - frame t-4 (causal)                   7.9    28.7    79.2    41.8
+3 per-drive background removed (diagnostic)             11.0    26.0    78.5    35.2
+2b motion, column activity only (12 numbers)             3.7    14.7    74.3    30.5
+3b background removed, column activity only              6.2    18.4    74.9    33.1
+corr(most active column, beam) on validation, motion: +0.272
+corr(most active column, beam) on validation, background removed: +0.324

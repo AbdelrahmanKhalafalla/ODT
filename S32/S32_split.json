@@ -1,0 +1,42 @@
+{
+ "scenario": "32",
+ "seed": 0,
+ "train": [
+  1,
+  4,
+  5,
+  6,
+  7,
+  11,
+  12,
+  14,
+  17
+ ],
+ "val": [
+  10,
+  16
+ ],
+ "test": [
+  2,
+  3,
+  8,
+  13
+ ],
+ "direction": {
+  "1": "A (beam rises)",
+  "2": "B (beam falls)",
+  "3": "A (beam rises)",
+  "4": "A (beam rises)",
+  "5": "B (beam falls)",
+  "6": "A (beam rises)",
+  "7": "A (beam rises)",
+  "8": "B (beam falls)",
+  "10": "B (beam falls)",
+  "11": "A (beam rises)",
+  "12": "B (beam falls)",
+  "13": "A (beam rises)",
+  "14": "B (beam falls)",
+  "16": "A (beam rises)",
+  "17": "B (beam falls)"
+ }
+}

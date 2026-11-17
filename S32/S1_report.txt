@@ -1,0 +1,33 @@
+[1] CSV scenario32\scenario32_dev.csv: 3235 rows
+    columns: ['index', 'unit1_rgb', 'unit1_pwr_60ghz', 'unit1_lidar', 'unit1_radar', 'unit1_loc', 'unit2_loc', 'unit1_beam', 'unit1_max_pwr', 'time_stamp', 'seq_index', 'unit2_spd_over_grnd_kmph', 'unit2_num_sats', 'unit2_altitude', 'unit2_geo_sep', 'unit2_mode_fix_type', 'unit2_pdop', 'unit2_hdop', 'unit2_vdop', 'unit2_interpolated_position']
+    mapped: {'idx': 'index', 'seq': 'seq_index', 'rgb': 'unit1_rgb', 'pwr': 'unit1_pwr_60ghz', 'lidar': 'unit1_lidar', 'radar': 'unit1_radar', 'bs': 'unit1_loc', 'ue': 'unit2_loc', 'beam': 'unit1_beam', 'time': 'time_stamp', 'spd': 'unit2_spd_over_grnd_kmph', 'interp': 'unit2_interpolated_position'}
+
+[2] LABELS  bad/missing power vectors: 21
+    CSV beam == argmax + 1: 100.00 % of 3214 frames
+    best vs second-best beam: median 0.07 dB | within 1 dB 100.0 % | within 0.1 dB 64.3 %  (near ties: top-1 cannot be much higher than this allows)
+    peak over median beam: median 2.0 dB | under 3 dB 69.9 %
+
+[3] TIME  first stamps: ['01:22:30-405771', '01:22:30-497819', '01:22:30-592039'] -> seconds [4950.406, 4950.498, 4950.592]
+    drive duration min/median/max 10.1/18.3/40.3 s  (one pass should take about 10-40 s)
+    drives 15: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 16, 17]
+    frames per drive min/median/max 104/184/405 | median dt 92 ms
+    repeated stamps 18 | gaps > 0.3 s 0 | time going backwards 0
+    drive appears again later (not contiguous): 0
+
+[4] GPS (never a model input)  valid 100.0 % | interpolated 9.3 %
+    distance min/median/max 13.8/38.6/53.3 m | speed median 10.1 km/h
+    corr(bearing, beam) 0.910 | beam = 2.0 + 0.587 * bearing  (non-interpolated frames)
+
+[5] FILES  image 100.0 % | lidar 100.0 % | radar 100.0 %
+
+[6] SPLIT (whole drives, stratified by direction, seed 0, fixed from now on)
+    A (beam rises): drives [1, 3, 4, 6, 7, 11, 13, 16]
+    B (beam falls): drives [2, 5, 8, 10, 12, 14, 17]
+    train drives [1, 4, 5, 6, 7, 11, 12, 14, 17] (5 A, 4 B) | 1981 frames (62.0 %) | beams 1-61
+    val   drives [10, 16] (1 A, 1 B) | 528 frames (16.5 %) | beams 1-61
+    test  drives [2, 3, 8, 13] (2 A, 2 B) | 688 frames (21.5 %) | beams 1-61
+    test beams never seen in training: none
+
+    usable frames 3197 of 3235 (dropped: bad power 21, repeated stamp 17)
+
+saved in S32/: S32_frames.csv, S32_power.npy, S32_split.json, S1_report.txt, S1_beam_vs_bearing.png, S1_drives.png

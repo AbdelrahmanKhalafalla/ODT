@@ -1,0 +1,25 @@
+[1] frames 3235 | used to fit (training drives, usable, non-interpolated GPS) 1795 | boxes per frame 4.8
+[2] parked boxes (same place in >= 80 % of their drive): 26.1 % of boxes
+    iteration 1: x = 0.298 + +0.0061 * bearing | height = 1.64 / distance | picks changed 975
+    iteration 2: x = 0.227 + +0.0073 * bearing | height = 1.61 / distance | picks changed 238
+    iteration 3: x = 0.207 + +0.0076 * bearing | height = 1.57 / distance | picks changed 115
+    iteration 4: x = 0.189 + +0.0077 * bearing | height = 1.54 / distance | picks changed 152
+    iteration 5: x = 0.176 + +0.0078 * bearing | height = 1.51 / distance | picks changed 132
+    iteration 6: x = 0.120 + +0.0087 * bearing | height = 1.49 / distance | picks changed 405
+    iteration 7: x = 0.071 + +0.0095 * bearing | height = 1.49 / distance | picks changed 246
+    iteration 8: x = 0.068 + +0.0095 * bearing | height = 1.49 / distance | picks changed 43
+    iteration 9: x = 0.066 + +0.0096 * bearing | height = 1.50 / distance | picks changed 11
+    iteration 10: x = 0.066 + +0.0096 * bearing | height = 1.50 / distance | picks changed 3
+    iteration 11: x = 0.066 + +0.0096 * bearing | height = 1.50 / distance | picks changed 0
+
+[3] FINAL x = 0.066 + +0.0096 * bearing | height = 1.50 / distance
+    target found, train: 89.4 % of 1795 frames
+    target found, val  : 91.8 % of 490 frames
+    target found, test : 94.1 % of 613 frames
+    corr(target x, beam), train: +0.931
+    corr(target x, beam), test: +0.948
+    rule 'largest box' picks the labelled car in 22.8 % of training frames
+    rule 'most confident' picks the labelled car in 33.7 % of training frames
+    rule 'rightmost' picks the labelled car in 29.1 % of training frames
+
+saved S32/S5_target.npz, S5b_report.txt, S5b_bearing_vs_x.png

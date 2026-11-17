@@ -1,0 +1,17 @@
+[1] samples train 1849 | val 516 | test 635 | feature versions 3 (1 original + 2 augmented) | per frame (512, 12)
+  CNN (frame t)                      seed 0: best epoch   1 | test top-1 11.3 | top-3 22.4 | power 74.0 | DBA 28.9
+  CNN (frame t)                      seed 1: best epoch   1 | test top-1 10.4 | top-3 22.7 | power 73.8 | DBA 28.5
+  CNN (frame t)                      seed 2: best epoch   1 | test top-1 8.5 | top-3 22.0 | power 74.2 | DBA 29.0
+  CNN (frame t), augmented           seed 0: best epoch   1 | test top-1 11.3 | top-3 22.4 | power 74.0 | DBA 28.9
+  CNN (frame t), augmented           seed 1: best epoch   1 | test top-1 9.8 | top-3 21.9 | power 73.8 | DBA 28.7
+  CNN (frame t), augmented           seed 2: best epoch   2 | test top-1 10.4 | top-3 22.0 | power 73.6 | DBA 29.0
+
+[4] TEST DRIVES (635 samples), mean +- std over 3 seeds
+model                                            top-1 %       top-3 %       top-5 %    +-1 beam %       power %         DBA %
+[S3] floor: always beam 16                    11.3 +-0.0    14.5 +-0.0    17.2 +-0.0    21.6 +-0.0    74.0 +-0.0    28.8 +-0.0
+[S3] kNN on GPS position (k=25)               34.3 +-0.0    70.7 +-0.0    82.2 +-0.0    69.4 +-0.0    95.3 +-0.0    82.9 +-0.0
+[S3] GRU baseline (paper, 2 GPS positions)    34.7 +-0.7    73.1 +-1.2    87.3 +-0.5    70.6 +-0.9    95.6 +-0.2    83.3 +-0.1
+CNN (frame t)                                 10.1 +-1.2    22.4 +-0.3    25.7 +-0.2    21.7 +-0.1    74.0 +-0.1    28.8 +-0.2
+CNN (frame t), augmented                      10.5 +-0.6    22.1 +-0.2    25.2 +-0.2    21.1 +-0.6    73.8 +-0.2    28.9 +-0.1
+
+saved in S32/: S4b_cnn_report.txt, S4b_cnn_results.csv, S4b_cnn_curves.png

@@ -1,0 +1,37 @@
+[1] scored test frames 635 | best beam jumps >= 3 beams since the previous frame: 14.2 % of them
+  seed 0 K=1: hybrid uses c = 1 camera beams | served power 89.9 % (local search 67.6 %)
+  seed 0 K=2: hybrid uses c = 1 camera beams | served power 97.4 % (local search 89.9 %)
+  seed 0 K=3: hybrid uses c = 1 camera beams | served power 98.7 % (local search 91.8 %)
+  seed 0 K=4: hybrid uses c = 1 camera beams | served power 99.2 % (local search 99.1 %)
+  seed 0 K=5: hybrid uses c = 0 camera beams | served power 99.6 % (local search 99.6 %)
+  seed 1 K=1: hybrid uses c = 1 camera beams | served power 88.5 % (local search 67.6 %)
+  seed 1 K=2: hybrid uses c = 1 camera beams | served power 96.3 % (local search 89.9 %)
+  seed 1 K=3: hybrid uses c = 1 camera beams | served power 97.5 % (local search 91.8 %)
+  seed 1 K=4: hybrid uses c = 1 camera beams | served power 98.4 % (local search 99.1 %)
+  seed 1 K=5: hybrid uses c = 0 camera beams | served power 99.6 % (local search 99.6 %)
+  seed 2 K=1: hybrid uses c = 1 camera beams | served power 86.3 % (local search 67.6 %)
+  seed 2 K=2: hybrid uses c = 1 camera beams | served power 92.2 % (local search 89.9 %)
+  seed 2 K=3: hybrid uses c = 1 camera beams | served power 95.0 % (local search 91.8 %)
+  seed 2 K=4: hybrid uses c = 0 camera beams | served power 99.1 % (local search 99.1 %)
+  seed 2 K=5: hybrid uses c = 0 camera beams | served power 99.6 % (local search 99.6 %)
+
+[5] TEST DRIVES (635 scored frames; 90 with a beam jump >= 3), mean over seeds
+method                      K  camera beams  beams/frame  served=best %  served power %  loss dB | on jumps: power %
+local search                1           0.0         1.37            0.8            67.6     1.88                77.9
+local search                2           0.0         2.36           36.9            89.9     0.55                89.5
+local search                3           0.0         3.35           51.2            91.8     0.44                91.5
+local search                4           0.0         4.35           78.4            99.1     0.04                97.3
+local search                5           0.0         5.34           87.4            99.6     0.02                97.9
+camera only                 1           1.0         1.37           27.4            88.2     0.65                89.7
+hybrid (c chosen on val)    1           1.0         1.37           27.4            88.2     0.65                89.7
+camera only                 2           2.0         2.36           46.4            90.4     0.53                91.1
+hybrid (c chosen on val)    2           1.0         2.36           51.3            95.3     0.25                94.7
+camera only                 3           3.0         3.35           54.4            91.2     0.49                91.6
+hybrid (c chosen on val)    3           1.0         3.35           64.5            97.1     0.15                95.5
+camera only                 4           4.0         4.35           59.0            92.1     0.44                92.5
+hybrid (c chosen on val)    4           0.7         4.35           78.2            98.9     0.05                97.0
+camera only                 5           5.0         5.34           63.0            92.8     0.40                93.3
+hybrid (c chosen on val)    5           0.0         5.34           87.4            99.6     0.02                97.9
+beams/frame includes the one full 64-beam sweep at the start of each drive. 'c' = camera beams among the K.
+
+saved in S32/: S6b_report.txt, S6b_results.csv, S6b_budget.png

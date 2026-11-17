@@ -1,0 +1,24 @@
+[1] frames 3235 | samples train 1849 val 516 test 635 | GPS-labelled target on training frames 81.0 %
+  seed 0: finder accuracy validation 68.7 % (tracking MU 1) | test 71.9 % | rule 'most confident' test 49.2 %
+    box MLP (frame t)    best epoch 169 | pipeline test top-1 27.7 | top-3 56.1 | DBA 66.1
+    box GRU (5 frames)   best epoch 153 | pipeline test top-1 25.4 | top-3 55.3 | DBA 66.3
+  seed 1: finder accuracy validation 66.7 % (tracking MU 0.5) | test 70.0 % | rule 'most confident' test 49.2 %
+    box MLP (frame t)    best epoch 163 | pipeline test top-1 27.9 | top-3 52.0 | DBA 64.6
+    box GRU (5 frames)   best epoch 109 | pipeline test top-1 24.1 | top-3 50.2 | DBA 63.5
+  seed 2: finder accuracy validation 84.4 % (tracking MU 2) | test 64.0 % | rule 'most confident' test 49.2 %
+    box MLP (frame t)    best epoch 113 | pipeline test top-1 25.5 | top-3 52.1 | DBA 61.5
+    box GRU (5 frames)   best epoch 121 | pipeline test top-1 26.5 | top-3 52.8 | DBA 62.3
+
+[4] TEST DRIVES (635 samples), mean +- std over 3 seeds
+model                                                            top-1 %       top-3 %       top-5 %    +-1 beam %       power %         DBA %
+[S3] floor: always beam 16                                    11.3 +-0.0    14.5 +-0.0    17.2 +-0.0    21.6 +-0.0    74.0 +-0.0    28.8 +-0.0
+[S3] kNN on GPS position (k=25)                               34.3 +-0.0    70.7 +-0.0    82.2 +-0.0    69.4 +-0.0    95.3 +-0.0    82.9 +-0.0
+[S3] GRU baseline (paper, 2 GPS positions)                    34.7 +-0.7    73.1 +-1.2    87.3 +-0.5    70.6 +-0.9    95.6 +-0.2    83.3 +-0.1
+box MLP (frame t) | pipeline: finder                          27.0 +-1.1    53.4 +-1.9    61.2 +-1.2    54.2 +-1.8    88.1 +-1.9    64.0 +-1.9
+box MLP (frame t) | rule: most confident box                  20.1 +-0.1    40.5 +-0.5    47.2 +-1.0    40.3 +-1.1    83.0 +-0.3    48.3 +-0.2
+box MLP (frame t) | upper bound: GPS-labelled box             34.2 +-0.3    66.7 +-0.5    76.6 +-0.3    68.9 +-1.7    93.8 +-0.1    78.0 +-0.2
+box GRU (5 frames) | pipeline: finder                         25.3 +-1.0    52.8 +-2.1    63.5 +-2.0    53.8 +-2.1    88.1 +-1.6    64.0 +-1.7
+box GRU (5 frames) | rule: most confident box                 16.2 +-1.4    35.0 +-2.2    45.6 +-1.6    36.6 +-2.1    82.4 +-0.3    45.2 +-0.9
+box GRU (5 frames) | upper bound: GPS-labelled box            32.0 +-2.3    65.2 +-3.2    77.5 +-1.5    68.3 +-1.8    93.7 +-0.6    78.1 +-1.6
+
+saved in S32/: S5c_report.txt, S5c_results.csv

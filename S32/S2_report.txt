@@ -1,0 +1,14 @@
+[1] GPS -> x, y with UTM zone 12 (pyproj); UE minus BS. x range 2.3..19.1 m, y range -3.5..52.6 m
+
+[2] samples of 5 frames (GPS at the first 2): 3000 (from 3197 usable frames; lost at drive starts, gaps and dropped frames)
+    train  1849 samples
+    val     516 samples
+    test    635 samples
+
+[3] min-max from training: x 3.2..19.1 m, y -2.6..52.4 m | val/test values outside [0, 1]: 0.09 %
+    train beams 1..61 | most common beam 16 (13.4 %)
+    val   beams 1..60 | most common beam 16 (18.6 %)
+    test  beams 1..61 | most common beam 16 (11.3 %)
+    beam at t equals beam at t-4: 28.3 % (how much the beam moves within a sample)
+
+saved S32/S2_samples.npz
